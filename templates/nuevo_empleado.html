@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Nuevo Empleado</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_nuevo_empleado.css') }}">
+</head>
+<body>
+    <header class="header">
+        <div class="usuario-info">
+            <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Avatar">
+            <span>Usuario Administrativo</span>
+        </div>
+        <div class="menu-container">
+            <button id="menuToggle" class="menu-button">☰</button>
+            <div id="menu" class="menu-dropdown">
+                <a href="/">Cerrar sesión</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <h1 class="titulo">Nuevo Empleado</h1>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <p class="mensaje {{ category }}">{{ message }}</p> 
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <form id="empleadoForm" method="POST" action="{{ url_for('nuevo_empleado') }}" enctype="multipart/form-data">
+            <label><b>Nombre completo:</b></label>
+            <input type="text" name="nombre" required>
+
+            <label><b>Cédula:</b></label>
+            <input type="text" name="cedula" required>
+
+            <label><b>Área de Trabajo:</b></label>
+            <input type="text" name="area" required>
+
+            <h2 class="subtitulo">Documentos a cargar</h2>
+
+            <label>Resultado Exámenes Médicos de Ingreso:</label>
+            <input type="file" name="examenes_medicos">
+
+            <label>Exámenes de Inducción:</label>
+            <input type="file" name="examenes_induccion">
+
+            <label>Carnet de Vacunación Covid 19:</label>
+            <input type="file" name="carnet_covid">
+
+            <button type="submit" class="btn-agregar">Agregar Empleado</button>
+        </form>
+    </main>
+
+    <a href="{{ url_for('menu') }}" class="volver-btn">
+        <img src="{{ url_for('static', filename='img/flecha.png') }}" alt="Volver">
+    </a>
+
+    <script src="{{ url_for('static', filename='js/script_nuevo_empleado.js') }}"></script>
+</body>
+</html>

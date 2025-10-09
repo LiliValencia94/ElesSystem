@@ -1,0 +1,108 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body, html{
+    height: 100%;
+    background: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.login-box{
+    background: #f9c4f9;
+    padding: 20px;
+    border-radius: 15px;
+    width: 280px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.subtitulo {
+    font-size: 13px;
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+.servidor {
+    width: 100%;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    background: #fff;
+    margin-bottom: 10px;
+    pointer-events: none;
+    user-select: none;
+    color: #333;
+}
+
+.titulo{
+    font-size: 24px;
+    font-weight: bold;
+    color:#ffffff;
+    text-align: center;
+    margin: 15px 0;
+}
+
+label{
+    font-size: 12px;
+    color: #ffffff;
+    margin: 5px 0;
+    display: block;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 7px;
+    border-radius: 6px;
+    border: none;
+    margin-bottom: 10px;
+}
+
+.password-container {
+    position: relative;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 8px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.botones {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #ffffff;
+    width: 45%;
+}
+
+.aceptar {
+    background-color: #cc1cd4;
+}
+
+.cancelar {
+    background-color: #cc1cd4;
+}

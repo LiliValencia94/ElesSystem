@@ -1,0 +1,12 @@
+CREATE TABLE Usuarios (
+    id INT PRIMARY KEY IDENTITY(1,1),
+    usuario NVARCHAR(50) NOT NULL,
+    clave NVARCHAR(50) NOT NULL,
+    rol NVARCHAR(20) NOT NULL
+);
+
+CREATE TABLE Empleados (
+    cedula NVARCHAR(50) PRIMARY KEY,
+    nombre NVARCHAR(100) NOT NULL,
+    area NVARCHAR(50) NOT NULL
+);

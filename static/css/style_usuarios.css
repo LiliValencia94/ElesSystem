@@ -1,0 +1,168 @@
+body {
+  background-color: #f7c3f9;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+header {
+  background-color: #f7c3f9;
+  padding: 10px;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.logo {
+  height: 120px;
+}
+
+.usuario-info {
+  font-weight: bold;
+  color: white;
+  text-shadow: 1px 1px 3px #000;
+  margin-left: 20px;
+}
+
+.menu-container {
+  position: relative;
+}
+
+.menu-btn {
+  background-color: #811190;
+  color: white;
+  font-size: 24px;
+  border: none;
+  border-radius: 8px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.menu-popup {
+  display: none;
+  position: absolute;
+  right: 0;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+.menu-popup a {
+  display: block;
+  padding: 10px;
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.menu-popup a:hover {
+  background-color: #eee;
+}
+
+main {
+  padding: 20px;
+}
+
+h1 {
+  font-size: 28px;
+  font-family: 'Comic Sans MS', cursive;
+}
+
+.formulario {
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.formulario label {
+  font-weight: bold;
+}
+
+input, select {
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+  margin-left: 5px;
+}
+
+button {
+  background-color: #c641c9;
+  color: white;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #a031a5;
+}
+
+table {
+  width: 90%;
+  margin: 0 auto;
+  border-collapse: collapse;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+th, td {
+  padding: 12px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+th {
+  background-color: #d452d9;
+  color: white;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-contenido {
+  background-color: #f088f5;
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
+
+.modal-contenido h3 {
+  margin-top: 0;
+  font-family: 'Comic Sans MS', cursive;
+}
+
+.cancelar {
+  background-color: #c32626;
+  margin-top: 10px;
+}
+
+.cancelar:hover {
+  background-color: #a71c1c;
+}
+
+.volver-btn img {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 2%;
+  height: auto;
+}

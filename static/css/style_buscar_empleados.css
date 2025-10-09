@@ -1,0 +1,95 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f3e8ff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Asegura que el contenedor ocupe toda la altura de la vista */
+    min-height: 100vh; 
+}
+
+/* ⚠️ SELECTOR PRINCIPAL: Debe coincidir con el HTML */
+.buscar-container { 
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    width: 420px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+h2 { /* Cambié h1 por h2 para coincidir con el HTML */
+    color: #701d85;
+    margin-bottom: 20px;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+input[type="text"] {
+    padding: 10px;
+    width: 80%;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    box-sizing: border-box; /* Importante para que el padding no afecte el width total */
+}
+
+button {
+    background-color: #701d85;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background-color: #8a33a6;
+}
+
+.resultado {
+    background: #e4fbe4;
+    border-radius: 10px;
+    padding: 15px;
+    color: #1e5128;
+    margin-top: 20px;
+    text-align: left;
+}
+
+.mensaje {
+    background: #ffe4e4;
+    color: #8b0000;
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+.btn-volver {
+    display: inline-block;
+    background-color: #9d26b6;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    transition: background 0.3s;
+}
+
+.btn-volver:hover {
+    background-color: #701d85;
+}

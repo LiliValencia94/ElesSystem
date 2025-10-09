@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menu Inicio - ElesSystem</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style_menu_inicial.css') }}">
+</head>
+<body>
+
+  <div class="usuario-label">Usuario Administrativo</div>
+
+  <div class="menu-usuario">
+    <button id="usuarioBtn">☰</button>
+    <div id="dropdown" class="dropdown-menu">
+      <a href="/">Cerrar sesión</a>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="fila-superior">
+      <a href="{{ url_for('nuevo_empleado') }}" class="boton btn-nuevo">Nuevo empleado</a>
+
+      <div class="logo">
+        <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo ElesSystem" />
+      </div>
+
+      <a href="{{ url_for('buscar_empleado') }}" class="boton btn-buscar">Buscar Empleado</a>
+    </div>
+
+    <div class="fila-inferior">
+      <a href="{{ url_for('usuarios') }}" class="boton btn-usuarios">Usuarios</a>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/script_menu_inicio.js') }}"></script>
+</body>
+</html>

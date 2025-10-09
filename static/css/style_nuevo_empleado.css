@@ -1,0 +1,123 @@
+body {
+  background-color: #fbb8f5;
+  font-family: 'Arial Rounded MT Bold', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fbb8f5;
+  padding: 10px 30px;
+}
+
+.usuario-info {
+  display: flex;
+  align-items: center;
+}
+
+.usuario-info img {
+  width: 50px;
+  margin-right: 10px;
+}
+
+.usuario-info span {
+  font-weight: bold;
+  color: white;
+  text-shadow: 1px 1px 2px black;
+}
+
+.menu-container {
+  position: relative;
+}
+
+.menu-button {
+  background-color: #7d2392;
+  color: white;
+  font-size: 20px;
+  border: none;
+  border-radius: 8px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.menu-dropdown {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 40px;
+  background-color: white;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.menu-dropdown a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+.titulo {
+  text-align: center;
+  font-size: 28px;
+  color: black;
+  margin-top: 30px;
+}
+
+.subtitulo {
+  text-align: center;
+  font-size: 24px;
+  margin-top: 30px;
+  color: black;
+}
+
+form {
+  width: 60%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+form label {
+  font-weight: bold;
+  color: black;
+}
+
+form input[type="text"],
+form input[type="file"] {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #eee;
+  width: 100%;
+}
+
+.btn-agregar {
+  margin-top: 20px;
+  background-color: #d350d3;
+  color: white;
+  font-size: 18px;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.btn-agregar:hover {
+  background-color: #a23fa2;
+}
+
+.volver-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+.volver-btn img {
+  width: 40px;
+}

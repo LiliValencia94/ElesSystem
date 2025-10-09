@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Gestión de Usuarios</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_usuarios.css') }}">
+    <style>
+        /* Estilos básicos para la vista */
+        .mensaje-error { color: #842029; background-color: #f8d7da; border: 1px solid #f5c2c7; padding: 10px; margin-bottom: 15px; border-radius: 5px; font-weight: bold; }
+        .mensaje-exito { color: #0f5132; background-color: #d1e7dd; border: 1px solid #badbcc; padding: 10px; margin-bottom: 15px; border-radius: 5px; font-weight: bold; }
+        .tabla-usuarios { width: 80%; margin: 20px auto; border-collapse: collapse; }
+        .tabla-usuarios th, .tabla-usuarios td { border: 1px solid #ccc; padding: 10px; text-align: left; }
+        .tabla-usuarios th { background-color: #f4f4f4; }
+        .tabla-usuarios form { display: inline; margin: 0; padding: 0; }
+        .formulario { padding: 20px; border: 1px solid #ddd; border-radius: 5px; background-color: #fff; margin-bottom: 30px; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo" class="logo" />
+            <div class="usuario-info">
+                <span>Usuario: {{ session.get('user_name', 'Invitado') }} ({{ session.get('user_rol', 'N/A') }})</span>
+            </div>
+            <div class="menu-container">
+                <button class="menu-btn" onclick="toggleMenu()">☰</button>
+                <div class="menu-popup" id="menuPopup">
+                    <a href="{{ url_for('logout') }}">Cerrar sesión</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <h1>Gestión de Usuarios</h1>
+        
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <p class="mensaje {% if category == 'error' %}mensaje-error{% else %}mensaje-exito{% endif %}">{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        {% if mensaje %}
+            <p class="mensaje-error">{{ mensaje }}</p>
+        {% endif %}
+
+        <div class="formulario">
+            <h2>Crear Nuevo Usuario</h2>
+            <form method="POST" action="{{ url_for('crear_usuario') }}">
+                <label>Nombre de Usuario: <input type="text" name="nuevo_usuario" required /></label>
+                <label>Contraseña: <input type="password" name="nueva_clave" required /></label>
+                <label>Rol:
+                    <select name="rol" required>
+                        <option value="Administrador">Administrador</option>
+                        <option value="Empleado">Empleado</option>
+                    </select>
+                </label>
+                <button type="submit" class="btn-agregar">Agregar Usuario</button>
+            </form>
+        </div>
+
+        <hr>
+
+        <h2>Usuarios Registrados</h2>
+        
+        <table class="tabla-usuarios" id="tablaUsuarios">
+            <thead>
+                <tr>
+                    <th>#</th> <th>Usuario</th>
+                    <th>Rol</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if usuarios %}
+                    {% for user in usuarios %}
+                    <tr>
+                        <td>{{ loop.index }}</td> 
+                        
+                        <td>{{ user.usuario }}</td>
+                        <td>{{ user.rol }}</td>
+                        <td>
+                            <button onclick="abrirModalEditar({{ user.id }}, {{ user.usuario | tojson }}, {{ user.rol | tojson }})">Editar</button> 
+                            
+                            <form method="POST" action="{{ url_for('eliminar_usuario', user_id=user.id) }}" style="display:inline;">
+                                <button type="submit" 
+                                        onclick="return confirm('¿Está seguro de ELIMINAR al usuario {{ user.usuario }}?');"
+                                        class="btn-eliminar">Eliminar</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td colspan="4">No se encontraron usuarios o hubo un error de conexión.</td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </main>
+
+    <div class="modal" id="modalEditar">
+        <div class="modal-contenido">
+            <h3>Editar Usuario</h3>
+            <label>Usuario: <input type="text" id="editarUsuario" /></label>
+            <label>Rol:
+                <select id="editarRol">
+                    <option value="Administrador">Administrador</option>
+                    <option value="Empleado">Empleado</option>
+                </select>
+            </label>
+            <label>Cambiar Contraseña: <input type="password" id="editarContrasena" /></label>
+            <button onclick="alert('La función de Edición requiere una ruta POST en app.py')">Actualización</button> 
+            <button class="cancelar" onclick="cerrarModal()">Cancelar</button>
+        </div>
+    </div>
+
+    <a href="{{ url_for('menu') }}" class="volver-btn">
+        <img src="{{ url_for('static', filename='img/flecha.png') }}" alt="Volver">
+    </a>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById("menuPopup");
+            menu.style.display = menu.style.display === "block" ? "none" : "block"; 
+        }
+        function abrirModalEditar(id, usuario, rol) {
+            document.getElementById('modalEditar').style.display = 'block';
+            document.getElementById('editarUsuario').value = usuario;
+            document.getElementById('editarRol').value = rol;
+            document.getElementById('editarContrasena').value = ''; 
+        }
+        function cerrarModal() {
+            document.getElementById('modalEditar').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
