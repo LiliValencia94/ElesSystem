@@ -33,6 +33,24 @@
     </div>
   </div>
 
+  <!-- ================= CHATBOT ================= -->
+
+  <button class="chat-bubble" id="chatToggle" aria-label="Abrir chat con el bot">💬</button>
+
+  <div class="chat-container" id="chatContainer" role="dialog" aria-modal="true" aria-labelledby="chatTitle">
+    <div class="chat-header">
+      <span id="chatTitle">Chatbot Educativo</span>
+      <button class="close-btn" id="closeChat" aria-label="Cerrar chat">✖</button>
+    </div>
+
+    <div class="messages" id="messages" role="log" aria-live="polite"></div>
+
+    <div class="input-area">
+      <input type="text" id="userInput" aria-label="Escribe tu mensaje" placeholder="Escribe tu pregunta..." />
+      <button id="sendBtn">Enviar</button>
+    </div>
+  </div>
+
   <script src="{{ url_for('static', filename='js/script_menu_inicio.js') }}"></script>
 </body>
 </html>
